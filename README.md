@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Juliana Morozowski — portfolio
 
-## Getting Started
+A single-page portfolio. Next.js App Router, Tailwind v4, deployed on Vercel.
 
-First, run the development server:
+**To change the text, see [EDITING.md](./EDITING.md).** Everything user-facing
+lives in `content/`; no copy is hardcoded in components.
+
+## Running it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/          layout, the single page, fonts.ts, colour tokens in globals.css
+components/   section, filmstrip, expandable project rows, theme toggle
+content/      all copy and project data  ← edit here
+lib/types.ts  the shape of a Project / Experience
+public/work/  project images
+fonts/        Larsseit woff2 + its licence notice (deliberately not in public/)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Notes on the design
 
-## Learn More
+- One centered column, `--col` in `globals.css` sets its width.
+- The work strip escapes that column to run full-bleed, and its track is padded
+  so the first tile still lines up with the text.
+- Tiles share a height and take whatever width their aspect ratio implies, so
+  portrait phone screens and wide artboards can sit in the same strip.
+- Light only, by choice. Colours are CSS variables on `:root` in `globals.css`;
+  there is no theme toggle and no dark palette to keep in sync.
 
-To learn more about Next.js, take a look at the following resources:
+## The typeface
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The site is set in **Larsseit** (Type Dynamic), carried over from juliana.pro,
+where it was installed as a MyFonts webfont kit licensed to Juliana. Only
+weights 400 and 700 exist in that build — don't reference others or the browser
+will fake them.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The files live in `fonts/` rather than `public/` so `next/font` serves them
+hashed from `/_next/static/media` instead of a guessable URL. **Before pointing
+a new domain at this site, read `fonts/LICENSE.txt`** — the build is capped at
+20,000 pageviews and MyFonts webfont licences are normally tied to specific
+domains.

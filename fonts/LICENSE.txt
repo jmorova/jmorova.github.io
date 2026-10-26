@@ -1,0 +1,30 @@
+Larsseit by Type Dynamic — licensed webfonts.
+
+Taken from Juliana's existing site (juliana.pro), where the kit was installed
+as a MyFonts webfont build. The original notice from that build's font.css:
+
+    MyFonts Webfont Build ID 3489056, 2017-11-26T15:14:10-0500
+
+    The fonts listed in this notice are subject to the End User License
+    Agreement(s) entered into by the website owner. All other parties are
+    explicitly restricted from using the Licensed Webfont(s).
+
+    Webfont: Larsseit-Bold by Type Dynamic
+    URL: https://www.myfonts.com/fonts/typedynamic/larsseit/bold/
+
+    Webfont: Larsseit by Type Dynamic
+    URL: https://www.myfonts.com/fonts/typedynamic/larsseit/regular/
+
+    License: https://www.myfonts.com/viewlicense?type=web&buildid=3489056
+    Licensed pageviews: 20,000
+    Webfonts copyright: Copyright (c) 2013 by Type Dynamic. All rights reserved.
+
+    (c) 2017 MyFonts Inc
+
+TWO THINGS TO CHECK BEFORE GOING LIVE ON A NEW DOMAIN
+  1. The build is capped at 20,000 pageviews.
+  2. MyFonts webfont licenses are normally tied to specific domain(s). Confirm
+     the new domain is covered at the license URL above, or buy a new build.
+
+Only the .woff2 files are kept here; the .woff and .ttf from the original kit
+were dropped as every current browser supports woff2.
